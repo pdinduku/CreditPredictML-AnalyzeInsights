@@ -1,0 +1,6 @@
+# Ignore Python and Jupyter-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
