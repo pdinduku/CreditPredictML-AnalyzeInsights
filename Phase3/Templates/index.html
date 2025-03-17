@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arimo', sans-serif;
+    }
+
+    .prediction {
+      text-align: center;
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      text-align: left;
+    }
+
+    .form-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    h1, .prediction_text {
+      font-family: 'Lobster', cursive;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .prediction_text {
+      margin-top: 20px;
+      font-size: 1.2em;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-item {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-family: 'Hind', sans-serif;
+      font-size: 1em;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="prediction">
+    <h1>Credit Score Analysis</h1>
+
+    <form action="{{ url_for('predict') }}" method="post" class="form-container">
+      <div class="form-item">
+        <label for="Interest_Rate">Interest Rate</label>
+        <input type="text" name="Interest_Rate" id="Interest_Rate" required="required" />
+      </div>
+      <div class="form-item">
+        <label for="Credit_Mix">Credit Mix</label>
+        <input type="text" name="Credit_Mix" id="Credit_Mix" required="required" />
+      </div>
+
+      <div class="form-item">
+        <label for="Delay_from_due_date">Delay from due date</label>
+        <input type="text" name="Delay_from_due_date" id="Delay_from_due_date" required="required" />
+      </div>
+
+      <div class="form-item">
+        <label for="Num_Credit_Inquiries">Num Credit Inquiries</label>
+        <input type="text" name="Num_Credit_Inquiries" id="Num_Credit_Inquiries" required="required" />
+      </div>
+
+      <div class="form-item">
+        <label for="Num_Credit_Card">Num Credit Card</label>
+        <input type="text" name="Num_Credit_Card" id="Num_Credit_Card" required="required" />
+      </div>
+
+      <div class="form-item">
+        <label for="Outstanding_Debt">Outstanding Debt</label>
+        <input type="text" name="Outstanding_Debt" id="Outstanding_Debt" required="required" />
+      </div>
+
+      <div class="form-item">
+        <label for="Credit_History_Age">Credit History Age</label>
+        <input type="text" name="Credit_History_Age" id="Credit_History_Age" required="required" />
+      </div>
+
+      <div class="form-item">
+        <label for="Payment_of_Min_Amount">Payment of Minimum Amount</label>
+        <input type="text" name="Payment_of_Min_Amount" id="Payment_of_Min_Amount" required="required" />
+      </div>
+
+      <div class="form-item">
+        <label for="Num_Bank_Accounts">Number of Bank Accounts</label>
+        <input type="text" name="Num_Bank_Accounts" id="Num_Bank_Accounts" required="required" />
+      </div>
+
+      <div class="form-item">
+        <label for="Num_of_Delayed_Payment">Number of Delayed Payments</label>
+        <input type="text" name="Num_of_Delayed_Payment" id="Num_of_Delayed_Payment" required="required" />
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+  </div>
+</body>
+
+</html>
